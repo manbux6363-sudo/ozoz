@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Pixel Store</title>
+<title>OZOZ | Anime Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -14,25 +13,22 @@
   font-family: "Courier New", monospace;
 }
 
-/* خلفية متحركة */
+/* الخلفية */
 body {
   min-height: 100vh;
   background: linear-gradient(120deg, #000000, #001a33, #003366, #000000);
   background-size: 400% 400%;
-  animation: fireMove 8s ease infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  animation: bgMove 8s ease infinite;
   color: #fff;
 }
 
-@keyframes fireMove {
+@keyframes bgMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* تأثير لهب أزرق */
+/* لهب أزرق */
 .fire {
   position: fixed;
   inset: 0;
@@ -49,60 +45,102 @@ body {
 }
 
 /* الحاوية */
-.container {
+.wrapper {
   position: relative;
   z-index: 1;
-  background: rgba(0,0,0,0.7);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 0 40px rgba(0,140,255,0.4);
-  text-align: center;
+  padding: 40px 20px 80px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* شعار بكس */
+/* الهيدر */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 .logo {
-  font-size: 42px;
+  font-size: 48px;
   letter-spacing: 4px;
   color: #00aaff;
-  text-shadow:
-    2px 2px 0 #000,
-    4px 4px 0 #003366;
-  margin-bottom: 20px;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #003366;
 }
 
-/* نص */
-.subtitle {
+.tagline {
+  margin-top: 10px;
   color: #ccefff;
-  margin-bottom: 30px;
+}
+
+/* شبكة المنتجات */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* كرت المنتج */
+.product-card {
+  background: rgba(0,0,0,0.75);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 0 25px rgba(0,140,255,0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px rgba(0,170,255,0.6);
+}
+
+/* صورة افتراضية */
+.product-img {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #001a33, #004488);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #88ccff;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* اسم المنتج */
+.product-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* السعر */
+.price {
+  color: #00aaff;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
 /* زر */
-button {
-  background: linear-gradient(45deg, #0066cc, #00aaff);
+.buy-btn {
+  width: 100%;
+  padding: 10px;
   border: none;
-  padding: 14px 30px;
-  color: #fff;
-  font-size: 16px;
   border-radius: 8px;
+  background: linear-gradient(45deg, #0066cc, #00aaff);
+  color: #fff;
   cursor: pointer;
   box-shadow: 0 0 15px rgba(0,170,255,0.6);
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-button:hover {
-  transform: scale(1.05);
+.buy-btn:hover {
   box-shadow: 0 0 25px rgba(0,170,255,0.9);
 }
 
-/* نبض خفيف */
-.pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 10px rgba(0,170,255,0.4); }
-  50% { box-shadow: 0 0 30px rgba(0,170,255,0.8); }
-  100% { box-shadow: 0 0 10px rgba(0,170,255,0.4); }
+/* الفوتر */
+footer {
+  margin-top: 70px;
+  text-align: center;
+  color: #88bbdd;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -110,15 +148,50 @@ button:hover {
 <body>
 <div class="fire"></div>
 
-<div class="container pulse">
-  <div class="logo">PIXEL STORE</div>
-  <div class="subtitle">
-    متجر رقمي | تصميم بكس | طاقة زرقاء 🔥
-  </div>
-  <button onclick="alert('قادم بقوة 🚀')">
-    دخول المتجر
-  </button>
-</div>
+<div class="wrapper">
 
+<header>
+  <div class="logo">OZOZ</div>
+  <div class="tagline">
+    متجر منتجات الأنمي | ستايل بكس | طاقة زرقاء
+  </div>
+</header>
+
+<section class="products">
+  <!-- منتج افتراضي -->
+  <div class="product-card">
+    <div class="product-img">صورة أنمي</div>
+    <div class="product-title">منتج أنمي #1</div>
+    <div class="price">-- د.ج</div>
+    <button class="buy-btn">قريبًا</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">صورة أنمي</div>
+    <div class="product-title">منتج أنمي #2</div>
+    <div class="price">-- د.ج</div>
+    <button class="buy-btn">قريبًا</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">صورة أنمي</div>
+    <div class="product-title">منتج أنمي #3</div>
+    <div class="price">-- د.ج</div>
+    <button class="buy-btn">قريبًا</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img">صورة أنمي</div>
+    <div class="product-title">منتج أنمي #4</div>
+    <div class="price">-- د.ج</div>
+    <button class="buy-btn">قريبًا</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 OZOZ — جميع الحقوق محفوظة
+</footer>
+
+</div>
 </body>
 </html>
