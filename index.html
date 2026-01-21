@@ -1,130 +1,124 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>مشروع الموقع</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, Tahoma;
-      background: #000;
-      
-      
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<title>Pixel Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    @keyframes bgMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+}
 
-    /* الصفحة الرئيسية */
-    .title-box {
-      background: rgba(255,255,255,0.15);
-      padding: 30px 50px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,0,255,0.5);
-      color: #fff;
-      margin: 50px auto;
-      width: 80%;
-    }
+/* خلفية متحركة */
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #000000, #001a33, #003366, #000000);
+  background-size: 400% 400%;
+  animation: fireMove 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
 
-    .title-box h1 { font-size: 32px; margin-bottom: 10px; }
-    .title-box p { font-size: 18px; margin-top: 15px; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 10px; }
+@keyframes fireMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .emoji { font-size: 28px; margin-left: 10px; }
+/* تأثير لهب أزرق */
+.fire {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(0,170,255,0.35), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(0,120,255,0.35), transparent 40%);
+  animation: flames 3s infinite alternate;
+  z-index: 0;
+}
 
-    .news-ticker { position: fixed; bottom: 0; width: 100%; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); overflow: hidden; white-space: nowrap; box-shadow: 0 -2px 20px rgba(0,0,0,0.3); }
-    .news-ticker p { display: inline-block; padding-left: 100%; animation: ticker 20s linear infinite; font-size: 18px; color: #fff; margin: 10px 0; }
-    @keyframes ticker { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+@keyframes flames {
+  from { opacity: 0.4; }
+  to { opacity: 0.8; }
+}
 
-    /* صفحة المنتجات */
-    .product-page {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 100px 20px 50px 20px;
-    }
+/* الحاوية */
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.7);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,140,255,0.4);
+  text-align: center;
+}
 
-    .product-card {
-      background: #121212;
-      border-radius: 18px;
-      width: 220px;
-      padding: 12px;
-      color: #fff;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      animation: drop 0.8s ease forwards;
-    }
+/* شعار بكس */
+.logo {
+  font-size: 42px;
+  letter-spacing: 4px;
+  color: #00aaff;
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 0 #003366;
+  margin-bottom: 20px;
+}
 
-    .product-card img{
-      width:100%;
-      border-radius:14px;
-      margin-bottom:10px;
-    }
+/* نص */
+.subtitle {
+  color: #ccefff;
+  margin-bottom: 30px;
+}
 
-    .price{
-      margin-top:8px;
-      font-weight:bold;
-      color:#00ffcc;
-    }
+/* زر */
+button {
+  background: linear-gradient(45deg, #0066cc, #00aaff);
+  border: none;
+  padding: 14px 30px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,170,255,0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
-    .product-card:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,0,255,0.6); }
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0,170,255,0.9);
+}
 
-    @keyframes drop { 0% { transform: translateY(-50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+/* نبض خفيف */
+.pulse {
+  animation: pulse 2s infinite;
+}
 
-    /* إضافات إضافية */
-    .product-card h2 { font-size: 20px; margin-bottom: 10px; }
-    .product-card p { font-size: 16px; color: #eef; }
-  </style>
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(0,170,255,0.4); }
+  50% { box-shadow: 0 0 30px rgba(0,170,255,0.8); }
+  100% { box-shadow: 0 0 10px rgba(0,170,255,0.4); }
+}
+</style>
 </head>
+
 <body>
+<div class="fire"></div>
 
-  <!-- الصفحة الرئيسية -->
-  <div class="title-box">
-    <h1>محمد اوز اوز اوز 10 الاصطورة <span class="emoji">👑</span></h1>
-    <p>من عندك: تابع أحدث المنتجات والأخبار الرقمية!</p>
+<div class="container pulse">
+  <div class="logo">PIXEL STORE</div>
+  <div class="subtitle">
+    متجر رقمي | تصميم بكس | طاقة زرقاء 🔥
   </div>
-
-  <!-- صفحة المنتجات -->
-  <div class="product-page">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x300" />
-      <h2>Figurine Frieren</h2>
-      <p>Beyond Journey’s End</p>
-      <div class="price">DZD 6,900</div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x300" />
-      <h2>Frieren Magic</h2>
-      <p>The Height of Magic</p>
-      <div class="price">DZD 9,500</div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x300" />
-      <h2>Chain Jujutsu</h2>
-      <p>Jujutsu Kaisen</p>
-      <div class="price">DZD 2,800</div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x300" />
-      <h2>Pochita Key</h2>
-      <p>Chainsaw Man</p>
-      <div class="price">DZD 1,900</div>
-    </div>
-  </div>
-
-  <div class="news-ticker">
-    <p>🛒 أحدث المنتجات وصلت اليوم! | 🎁 خصومات مميزة على جميع المنتجات الرقمية | ⚡ لا تفوت فرصة الاشتراك لتصلك العروض أولاً!</p>
-  </div>
+  <button onclick="alert('قادم بقوة 🚀')">
+    دخول المتجر
+  </button>
+</div>
 
 </body>
 </html>
