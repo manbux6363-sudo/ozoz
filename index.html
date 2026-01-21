@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>OZOZ | Anime Store</title>
+<title>ANIME BOX</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,65 +10,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Courier New", monospace;
+  font-family: Tahoma, sans-serif;
 }
 
-/* الخلفية */
+/* الخلفية السوداء */
 body {
-  min-height: 100vh;
-  background: linear-gradient(120deg, #000000, #001a33, #003366, #000000);
-  background-size: 400% 400%;
-  animation: bgMove 8s ease infinite;
+  background: #000;
   color: #fff;
-}
-
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* لهب أزرق */
-.fire {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 80%, rgba(0,170,255,0.35), transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(0,120,255,0.35), transparent 40%);
-  animation: flames 3s infinite alternate;
-  z-index: 0;
-}
-
-@keyframes flames {
-  from { opacity: 0.4; }
-  to { opacity: 0.8; }
+  min-height: 100vh;
 }
 
 /* الحاوية */
-.wrapper {
-  position: relative;
-  z-index: 1;
-  padding: 40px 20px 80px;
+.container {
   max-width: 1200px;
   margin: auto;
+  padding: 40px 20px 80px;
 }
 
-/* الهيدر */
+/* اسم الموقع */
 header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .logo {
   font-size: 48px;
-  letter-spacing: 4px;
-  color: #00aaff;
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #003366;
+  letter-spacing: 3px;
+  color: #ffffff;
 }
 
-.tagline {
+.subtitle {
   margin-top: 10px;
-  color: #ccefff;
+  color: #aaa;
+  font-size: 14px;
 }
 
 /* شبكة المنتجات */
@@ -78,120 +52,137 @@ header {
   gap: 25px;
 }
 
-/* كرت المنتج */
+/* إطار منتج ستايل PS5 */
 .product-card {
-  background: rgba(0,0,0,0.75);
-  border-radius: 16px;
-  padding: 15px;
-  box-shadow: 0 0 25px rgba(0,140,255,0.25);
+  background: linear-gradient(180deg, #0a0a0a, #111);
+  border-radius: 20px;
+  padding: 20px;
+  border: 2px solid #1e90ff;
+  box-shadow: 0 0 20px rgba(30,144,255,0.35);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 40px rgba(0,170,255,0.6);
+  box-shadow: 0 0 35px rgba(30,144,255,0.7);
 }
 
-/* صورة افتراضية */
-.product-img {
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(135deg, #001a33, #004488);
-  border-radius: 12px;
+/* مكان الصورة (فارغ عمداً) */
+.product-placeholder {
+  height: 140px;
+  border-radius: 14px;
+  background: #050505;
+  border: 1px dashed #333;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #88ccff;
-  font-size: 14px;
+  color: #444;
+  font-size: 13px;
   margin-bottom: 15px;
 }
 
 /* اسم المنتج */
-.product-title {
+.product-name {
   font-size: 16px;
   margin-bottom: 8px;
 }
 
 /* السعر */
-.price {
-  color: #00aaff;
+.product-price {
+  color: #1e90ff;
   font-weight: bold;
-  margin-bottom: 12px;
-}
-
-/* زر */
-.buy-btn {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(45deg, #0066cc, #00aaff);
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(0,170,255,0.6);
-}
-
-.buy-btn:hover {
-  box-shadow: 0 0 25px rgba(0,170,255,0.9);
+  font-size: 15px;
 }
 
 /* الفوتر */
 footer {
   margin-top: 70px;
   text-align: center;
-  color: #88bbdd;
-  font-size: 14px;
+  color: #666;
+  font-size: 13px;
 }
 </style>
 </head>
 
 <body>
-<div class="fire"></div>
 
-<div class="wrapper">
+<div class="container">
 
 <header>
-  <div class="logo">OZOZ</div>
-  <div class="tagline">
-    متجر منتجات الأنمي | ستايل بكس | طاقة زرقاء
-  </div>
+  <div class="logo">ANIME BOX</div>
+  <div class="subtitle">منتجات أنمي | ستايل بلايستيشن 5</div>
 </header>
 
 <section class="products">
+
   <!-- منتج افتراضي -->
   <div class="product-card">
-    <div class="product-img">صورة أنمي</div>
-    <div class="product-title">منتج أنمي #1</div>
-    <div class="price">-- د.ج</div>
-    <button class="buy-btn">قريبًا</button>
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
   </div>
 
   <div class="product-card">
-    <div class="product-img">صورة أنمي</div>
-    <div class="product-title">منتج أنمي #2</div>
-    <div class="price">-- د.ج</div>
-    <button class="buy-btn">قريبًا</button>
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
   </div>
 
   <div class="product-card">
-    <div class="product-img">صورة أنمي</div>
-    <div class="product-title">منتج أنمي #3</div>
-    <div class="price">-- د.ج</div>
-    <button class="buy-btn">قريبًا</button>
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
   </div>
 
   <div class="product-card">
-    <div class="product-img">صورة أنمي</div>
-    <div class="product-title">منتج أنمي #4</div>
-    <div class="price">-- د.ج</div>
-    <button class="buy-btn">قريبًا</button>
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
   </div>
+
+  <div class="product-card">
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-placeholder">مكان الصورة</div>
+    <div class="product-name">اسم المنتج</div>
+    <div class="product-price">-- دج</div>
+  </div>
+
 </section>
 
 <footer>
-  © 2026 OZOZ — جميع الحقوق محفوظة
+  © 2026 ANIME BOX — جميع الحقوق محفوظة
 </footer>
 
 </div>
+
 </body>
 </html>
